@@ -1,0 +1,23 @@
+{
+  "name": "notesapp",
+  "version": "1.0.0",
+  "description": "My version of the notes app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Destiny-01/notesapp2.git"
+  },
+  "author": "Destiny Aigbe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Destiny-01/notesapp2/issues"
+  },
+  "homepage": "https://github.com/Destiny-01/notesapp2#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
