@@ -2,7 +2,6 @@
 
 <head>
   <link rel="stylesheet" href="index.css" />
-  <script src="index.js"></script>
   <title>Note Taker App</title>
 </head>
 <body>
@@ -18,7 +17,38 @@
 </body>
 
 <script>
+  let getNoteId = () => {
+    let noteObject = getExistingNotes();
+    if (!noteObject) {
+      return 1;
+    }
+    const keysArray = Object.keys(noteObject);
+    const numberKeys = keysArray.map((key) => Number(key));
+    console.log(numberKeys);
+    return Math.max(...numberKeys) + 1;
+  };
+
+  let getExistingNotes = () => {
+    let notes = localStorage.getItem("notes");
+    if (!notes) {
+      return null;
+    }
+    return JSON.parse(notes);
+  };
+
   var textElement = document.getElementById("note");
 
-  function saveNote() {}
+  function saveNote() {
+    if (textElement.value == "") {
+      return alert("text is empty");
+    }
+    const id = getNoteId();
+    let noteObject = getExistingNotes();
+    if (!noteObject) {
+      noteObject = {};
+    }
+    noteObject[id] = textElement.value;
+    localStorage.setItem("notes", JSON.stringify(noteObject));
+    alert("Note Saved!");
+  }
 </script>
